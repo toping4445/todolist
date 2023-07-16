@@ -1,0 +1,10 @@
+    <action name="create_staging_table" cred="hive2" retry-max="3" retry-interval="5">
+        <hive2 xmlns="uri:oozie:hive2-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <jdbc-url>jdbc:hive2://pay-hadoop-rm2.dakao.io:10000/default</jdbc-url>
+            <script>${wf:appPath()}/create_staging_table.hql</script>
+        </hive2>
+        <ok to="create_bi_table"/>
+        <error to="Kill_noti"/>
+    </action>

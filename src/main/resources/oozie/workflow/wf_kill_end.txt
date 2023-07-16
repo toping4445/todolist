@@ -1,0 +1,5 @@
+    <kill name="Kill">
+        <message>작업 실패, 오류 메시지[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <end name="End"/>
+</workflow-app>

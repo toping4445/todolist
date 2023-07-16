@@ -1,0 +1,14 @@
+<workflow-app name="wf_import_${db}_${table}(${importType}_${impalaStatType}_${yyyymmdd}) xmlns="uri:oozie:workflow:0.5">
+    <credentials>
+        <credential name="hive2" type="hive2">
+            <property>
+                <name>hive2.jdbc.url</name>
+                <value>jdbc:hive2://pay-hadoop-rm2.dakao.io:10000/default</value>
+            </property>
+            <property>
+                <name>hive2.server.principal</name>
+                <value>hive/pay-hadoop-rm2.dakao.io@FDS.HADOOP</value>
+            </property>
+        </credential>
+    </credentials>
+    <start to="create_staging_table"/>
